@@ -383,13 +383,19 @@ func convertDeploymentHook(src *deploymentHook) *scm.DeployHook {
 		Target:    src.Deployment.Environment.String,
 		TargetURL: src.Deployment.EnvironmentURL.String,
 	}
-	if tagRE.MatchString(dst.Ref.Name) {
+
+	if shaRE.MatchString(dst.Ref.Name) {
+		dst.Ref.Path = scm.ExpandRef(dst.Ref.Path, "refs/")
+	} else if tagRE.MatchString(dst.Ref.Name) {
 		dst.Ref.Path = scm.ExpandRef(dst.Ref.Path, "refs/tags/")
 	} else {
 		dst.Ref.Path = scm.ExpandRef(dst.Ref.Path, "refs/heads/")
 	}
 	return dst
 }
+
+// regexp string to check if a commit hash was sent as the ref (quacks like a duck)
+var shaRE = regexp.MustCompile("^[0-9a-fA-F]{40}$")
 
 // regexp help determine if the named git object is a tag.
 // this is not meant to be 100% accurate.
