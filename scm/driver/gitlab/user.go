@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/drone/go-scm/scm"
-	"github.com/drone/go-scm/scm/driver/internal/null"
+	"github.com/mlclmj/go-scm/scm"
+	"github.com/mlclmj/go-scm/scm/driver/internal/null"
 )
 
 type userService struct {

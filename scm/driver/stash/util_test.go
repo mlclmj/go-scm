@@ -7,7 +7,7 @@ package stash
 import (
 	"testing"
 
-	"github.com/drone/go-scm/scm"
+	"github.com/mlclmj/go-scm/scm"
 )
 
 func Test_encodeListOptions(t *testing.T) {

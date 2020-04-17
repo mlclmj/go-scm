@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/drone/go-scm/scm"
+	"github.com/mlclmj/go-scm/scm"
 )
 
 type contentService struct {

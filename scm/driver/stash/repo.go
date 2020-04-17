@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/drone/go-scm/scm"
+	"github.com/mlclmj/go-scm/scm"
 )
 
 type repository struct {
